@@ -83,7 +83,8 @@ nav {
 }
 .page-hero::before {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.3));
+  background: linear-gradient(to top, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.45) 100%);
+  z-index: 1;
 }
 .page-hero::after {
   content: ''; position: absolute; inset: 0;
@@ -395,4 +396,521 @@ footer {
   .hero { padding: 0 6vw; }
   .stats-section { padding: 60px 6vw; }
   .brands-strip { gap: 24px; padding: 24px; }
+}
+
+/* ── LANGUAGE SWITCHER ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+.lang-switcher {
+  display: flex;
+  gap: 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  padding: 3px;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.lang-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.lang-active {
+  background: var(--gm-blue) !important;
+  color: #fff !important;
+}
+.lang-flag { font-size: 0.9rem; }
+.calc-nav-btn { padding: 8px 14px !important; font-size: 0.65rem !important; letter-spacing: 1.5px !important; }
+
+/* ── CALCULATOR PAGE ── */
+.calc-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.calc-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.calc-field label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.calc-field label strong { color: var(--gm-accent); }
+.calc-field select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  border-radius: 2px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300aeef' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+.calc-price-tag {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  padding-left: 2px;
+}
+.calc-price-tag strong { color: var(--gm-accent); }
+.calc-currency-row {
+  display: flex;
+  gap: 6px;
+}
+.calc-range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.calc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gm-blue);
+  cursor: pointer;
+  border: 2px solid #fff;
+  transition: transform 0.15s;
+}
+.calc-range::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.calc-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 1px;
+}
+.calc-results {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+.calc-monthly-big {
+  background: linear-gradient(135deg, rgba(0,174,239,0.12), rgba(0,100,180,0.06));
+  border: 1px solid rgba(0,174,239,0.2);
+  padding: 32px;
+  text-align: center;
+  border-radius: 2px;
+}
+.calc-monthly-label {
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 12px;
+}
+.calc-monthly-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: var(--gm-accent);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.calc-monthly-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+.calc-breakdown {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.calc-row-total {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 4px;
+}
+.calc-bar-wrap { padding: 4px 0; }
+.calc-bar-label {
+  display: flex;
+  gap: 16px;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.calc-bar {
+  height: 8px;
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.calc-bar-principal { background: var(--gm-blue); transition: width 0.5s ease; }
+.calc-bar-interest { background: var(--gm-accent); transition: width 0.5s ease; }
+.calc-tip {
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid #4ade80;
+  padding: 16px 20px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .calc-container { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .nav-right { gap: 8px; }
+  .calc-nav-btn { display: none; }
+}
+
+/* ── NAV ICONS ── */
+.nav-icon-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  padding: 7px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  position: relative;
+}
+.nav-icon-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); }
+.nav-badge-wrap { position: relative; }
+.nav-badge {
+  position: absolute;
+  top: -6px; right: -6px;
+  background: var(--gm-accent);
+  color: #000;
+  font-size: 0.55rem;
+  font-weight: 800;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: sans-serif;
+}
+
+/* ── VEHICLES TOOLBAR ── */
+.vehicles-toolbar {
+  background: #0d0d0d;
+  padding: 20px 8vw;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  align-items: center;
+  justify-content: space-between;
+}
+.vtoolbar-select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  padding: 8px 14px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* ── VEHICLE CARD V2 ── */
+.vehicle-card-v2 { cursor: default; }
+.vc-img-wrap { position: relative; overflow: hidden; cursor: pointer; }
+.vc-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.25s;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem; letter-spacing: 3px; color: #fff;
+}
+.vc-img-wrap:hover .vc-overlay { opacity: 1; }
+.vc-badge-new { right: auto; left: 12px; background: #22c55e !important; }
+.vc-rating { font-size: 0.7rem; color: #fbbf24; margin: 4px 0 8px; letter-spacing: 1px; }
+.vc-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+.vc-price { font-size: 0.8rem; color: var(--gm-accent); font-weight: 700; }
+.vc-icon-btn {
+  background: transparent; border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.5); padding: 5px 8px; cursor: pointer;
+  border-radius: 3px; font-size: 0.8rem; transition: all 0.2s;
+}
+.vc-icon-btn:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+.vc-fav-on { border-color: #ef4444 !important; }
+.vc-cmp-on { border-color: var(--gm-blue) !important; }
+
+/* ── VEHICLE DETAIL PAGE ── */
+.vdp-root { padding-bottom: 80px; }
+.vdp-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; border: none;
+  color: rgba(255,255,255,0.45); font-size: 0.7rem; letter-spacing: 2px;
+  cursor: pointer; padding: 24px 8vw 0;
+  transition: color 0.2s; font-family: 'Bebas Neue', sans-serif;
+}
+.vdp-back:hover { color: var(--gm-accent); }
+.vdp-hero {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 56px; padding: 32px 8vw 56px; max-width: 1400px; margin: 0 auto;
+}
+.vdp-gallery { display: flex; flex-direction: column; gap: 12px; }
+.vdp-main-img {
+  position: relative; overflow: hidden; aspect-ratio: 16/10;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.vdp-main-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.vdp-main-img:hover img { transform: scale(1.03); }
+.vdp-pill {
+  position: absolute; top: 16px; right: 16px;
+  padding: 5px 12px; font-size: 0.6rem; font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 2px; border-radius: 2px;
+}
+.vdp-pill-new { background: #22c55e; color: #000; }
+.vdp-pill-ev { background: var(--gm-blue); color: #fff; }
+.vdp-pill-badge { background: var(--gm-accent); color: #000; }
+.vdp-thumbs { display: flex; gap: 8px; }
+.vdp-thumb { width: 80px; height: 55px; overflow: hidden; cursor: pointer; opacity: 0.5; border: 1px solid transparent; transition: all 0.2s; flex-shrink: 0; }
+.vdp-thumb.active { opacity: 1; border-color: var(--gm-accent); }
+.vdp-thumb:hover { opacity: 0.85; }
+.vdp-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.vdp-gallery-label { font-size: 0.6rem; letter-spacing: 2px; color: rgba(255,255,255,0.25); }
+.vdp-info { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
+.vdp-brand-row { display: flex; align-items: center; gap: 12px; }
+.vdp-brand { font-size: 0.65rem; letter-spacing: 4px; color: var(--gm-accent); text-transform: uppercase; }
+.vdp-year { font-size: 0.65rem; letter-spacing: 2px; color: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.1); padding: 2px 8px; }
+.vdp-title { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; letter-spacing: 3px; line-height: 1; margin: 0; }
+.vdp-tag-line { font-size: 0.75rem; letter-spacing: 2px; color: rgba(255,255,255,0.45); margin: 0; }
+.vdp-short-desc { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin: 0; font-weight: 300; }
+.vdp-rating { display: flex; align-items: center; gap: 8px; }
+.vdp-stars { font-size: 1rem; letter-spacing: 2px; }
+.vdp-rating-num { font-size: 0.85rem; font-weight: 700; color: #fbbf24; }
+.vdp-rating-count { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+.vdp-price-section { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.vdp-price-label { font-size: 0.6rem; letter-spacing: 3px; color: rgba(255,255,255,0.35); }
+.vdp-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; letter-spacing: 2px; color: var(--gm-accent); line-height: 1; }
+.vdp-currency-row { display: flex; gap: 4px; }
+.vdp-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.vdp-btn-main { flex: 1; min-width: 180px; padding: 14px 20px; font-size: 0.75rem; }
+.vdp-btn-icon { padding: 12px 16px; font-size: 0.7rem; letter-spacing: 1.5px; }
+.vdp-fav-active { border-color: #ef4444 !important; color: #ef4444 !important; }
+.vdp-cmp-active { border-color: var(--gm-blue) !important; color: var(--gm-blue) !important; }
+.vdp-colors-section { display: flex; flex-direction: column; gap: 10px; }
+.vdp-section-label { font-size: 0.65rem; letter-spacing: 2px; color: rgba(255,255,255,0.35); }
+.vdp-color-dots { display: flex; gap: 8px; flex-wrap: wrap; }
+.vdp-color-dot {
+  width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+  border: 2px solid transparent; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.vdp-color-dot.active { border-color: #fff; transform: scale(1.2); }
+.vdp-color-dot:hover { transform: scale(1.1); }
+
+/* ── VDP TABS ── */
+.vdp-tabs-wrap { background: #0d0d0d; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.vdp-tabs { display: flex; gap: 0; padding: 0 8vw; }
+.vdp-tab {
+  background: transparent; border: none; border-bottom: 2px solid transparent;
+  color: rgba(255,255,255,0.4); font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem; letter-spacing: 3px; padding: 20px 28px;
+  cursor: pointer; transition: all 0.2s;
+}
+.vdp-tab:hover { color: rgba(255,255,255,0.7); }
+.vdp-tab.active { color: var(--gm-accent); border-bottom-color: var(--gm-accent); }
+.vdp-tab-content { padding: 40px 8vw; max-width: 1400px; margin: 0 auto; }
+.vdp-specs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 2px; }
+.vdp-spec-item {
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+  padding: 20px 24px;
+}
+.vdp-spec-label { font-size: 0.6rem; letter-spacing: 2px; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
+.vdp-spec-val { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: #fff; }
+.vdp-features-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.vdp-feature-tag {
+  background: rgba(0,174,239,0.08); border: 1px solid rgba(0,174,239,0.2);
+  color: rgba(255,255,255,0.75); padding: 10px 18px;
+  font-size: 0.78rem; letter-spacing: 1px;
+}
+.vdp-colors-big { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
+.vdp-color-card {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 16px; border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer; transition: all 0.2s;
+}
+.vdp-color-card:hover, .vdp-color-card.active { border-color: var(--gm-accent); background: rgba(0,174,239,0.05); }
+.vdp-color-swatch { width: 48px; height: 48px; border-radius: 50%; box-shadow: 0 4px 16px rgba(0,0,0,0.5); }
+.vdp-color-name { font-size: 0.65rem; letter-spacing: 1px; color: rgba(255,255,255,0.5); text-align: center; }
+
+/* ── VDP DESC ── */
+.vdp-desc-section { background: #080808; padding: 70px 8vw; }
+.vdp-desc-inner { max-width: 800px; }
+.vdp-desc-text { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.9; margin-top: 24px; font-weight: 300; }
+
+/* ── MODAL ── */
+.vdp-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+  z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: 24px; backdrop-filter: blur(4px);
+  animation: pageFade 0.2s ease;
+}
+.vdp-modal {
+  background: #111; border: 1px solid rgba(255,255,255,0.1);
+  padding: 48px; max-width: 520px; width: 100%; position: relative;
+  max-height: 90vh; overflow-y: auto;
+}
+.vdp-modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 3px; margin-bottom: 8px; }
+.vdp-modal-sub { font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 28px; }
+.vdp-form { display: flex; flex-direction: column; gap: 20px; }
+.vdp-form-field { display: flex; flex-direction: column; gap: 8px; }
+.vdp-form-field label { font-size: 0.65rem; letter-spacing: 2px; color: rgba(255,255,255,0.4); }
+.vdp-form-field input {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  color: #fff; padding: 12px 16px; font-size: 0.9rem; border-radius: 2px;
+  transition: border-color 0.2s; outline: none;
+}
+.vdp-form-field input:focus { border-color: var(--gm-blue); }
+.vdp-form-field input[type="date"] { color-scheme: dark; }
+.vdp-form-actions { display: flex; gap: 12px; margin-top: 8px; }
+.vdp-done { text-align: center; padding: 24px 0; }
+.vdp-done-icon { font-size: 3rem; margin-bottom: 16px; }
+.vdp-done h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 3px; }
+.vdp-done p { color: rgba(255,255,255,0.55); margin-top: 8px; font-size: 0.9rem; }
+
+/* ── SEARCH OVERLAY ── */
+.search-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+  z-index: 2000; display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 80px; backdrop-filter: blur(6px);
+  animation: pageFade 0.2s ease;
+}
+.search-modal {
+  background: #111; border: 1px solid rgba(255,255,255,0.1);
+  width: 100%; max-width: 680px; max-height: 80vh; overflow-y: auto;
+}
+.search-input-wrap {
+  display: flex; align-items: center; gap: 16px;
+  padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky; top: 0; background: #111;
+}
+.search-icon { font-size: 1.1rem; flex-shrink: 0; }
+.search-input {
+  flex: 1; background: transparent; border: none; outline: none;
+  color: #fff; font-size: 1.2rem; font-family: 'Barlow', sans-serif;
+}
+.search-input::placeholder { color: rgba(255,255,255,0.2); }
+.search-close-btn {
+  background: transparent; border: none; color: rgba(255,255,255,0.35);
+  font-size: 1rem; cursor: pointer; padding: 4px 8px; transition: color 0.2s;
+}
+.search-close-btn:hover { color: #fff; }
+.search-results { padding: 8px; }
+.search-no-results { padding: 32px; text-align: center; color: rgba(255,255,255,0.35); font-size: 0.85rem; }
+.search-result-item {
+  display: flex; align-items: center; gap: 16px; padding: 14px 16px;
+  cursor: pointer; transition: background 0.15s; position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.search-result-item:hover { background: rgba(255,255,255,0.04); }
+.search-result-img { width: 80px; height: 52px; object-fit: cover; flex-shrink: 0; }
+.search-result-info { flex: 1; }
+.search-result-brand { font-size: 0.6rem; letter-spacing: 2px; color: var(--gm-accent); margin-bottom: 2px; }
+.search-result-name { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px; }
+.search-result-tag { font-size: 0.7rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.search-result-price { font-size: 0.8rem; color: var(--gm-accent); font-weight: 700; flex-shrink: 0; }
+.search-result-badge { position: static !important; flex-shrink: 0; }
+.search-hints { padding: 24px; }
+.search-hint-label { font-size: 0.6rem; letter-spacing: 3px; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
+.search-hint-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.search-hint-chip {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6); padding: 7px 16px; cursor: pointer;
+  font-size: 0.75rem; letter-spacing: 1px; border-radius: 2px; transition: all 0.15s;
+}
+.search-hint-chip:hover { background: rgba(0,174,239,0.1); border-color: var(--gm-blue); color: #fff; }
+
+/* ── COMPARE PAGE ── */
+.cmp-hero { padding: 70px 8vw 40px; }
+.cmp-empty { text-align: center; padding: 60px 24px; }
+.cmp-empty-icon { font-size: 3rem; margin-bottom: 20px; }
+.cmp-table-wrap { overflow-x: auto; }
+.cmp-table { width: 100%; border-collapse: collapse; }
+.cmp-th-label { width: 180px; padding: 16px 24px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.65rem; letter-spacing: 2px; color: rgba(255,255,255,0.35); }
+.cmp-th-vehicle { padding: 24px 20px; text-align: center; border-bottom: 2px solid var(--gm-accent); min-width: 200px; }
+.cmp-th-vehicle img { width: 140px; height: 90px; object-fit: cover; margin-bottom: 12px; }
+.cmp-v-brand { font-size: 0.6rem; letter-spacing: 3px; color: var(--gm-accent); margin-bottom: 4px; }
+.cmp-v-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; }
+.cmp-row:nth-child(even) { background: rgba(255,255,255,0.015); }
+.cmp-row-label { padding: 16px 24px; font-size: 0.68rem; letter-spacing: 1.5px; color: rgba(255,255,255,0.35); border-right: 1px solid rgba(255,255,255,0.04); }
+.cmp-row-val { padding: 16px 20px; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+
+/* ── WISHLIST ── */
+.wish-card { position: relative; }
+.wish-remove-btn {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  background: rgba(0,0,0,0.7); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6); width: 26px; height: 26px;
+  border-radius: 50%; cursor: pointer; font-size: 0.65rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.wish-remove-btn:hover { background: #ef4444; color: #fff; border-color: #ef4444; }
+.wish-total { display: flex; align-items: center; }
+
+@media (max-width: 900px) {
+  .vdp-hero { grid-template-columns: 1fr; gap: 32px; }
+  .vdp-title { font-size: 2.5rem; }
+  .cmp-th-label { width: 100px; padding: 12px; }
+  .nav-links { display: none; }
+}
+
+/* ── VELO MOTORS LOGO ── */
+.nav-logo { display: flex; align-items: center; gap: 2px; cursor: pointer; user-select: none; }
+.nav-logo-vm {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  color: #fff;
+  line-height: 1;
+}
+.nav-logo-dot {
+  color: var(--gm-accent);
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-left: 1px;
 }

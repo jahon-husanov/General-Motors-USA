@@ -1,16 +1,19 @@
+import { useLang } from '../i18n/LangContext'
+
 export default function Footer({ setPage }) {
+  const { t } = useLang()
   return (
     <footer>
-      <div className="footer-logo">General Motors</div>
+      <div className="footer-logo">VELO Motors</div>
       <div className="footer-links">
-        <a>Privacy</a>
-        <a>Terms</a>
-        <a onClick={() => setPage('company')}>Careers</a>
-        <a onClick={() => setPage('company')}>Newsroom</a>
-        <a onClick={() => setPage('investors')}>Investors</a>
-        <a>Contact</a>
+        <a>{t.footer.privacy}</a>
+        <a>{t.footer.terms}</a>
+        <a onClick={() => setPage('company')}>{t.footer.careers}</a>
+        <a onClick={() => setPage('company')}>{t.footer.newsroom}</a>
+        <a onClick={() => setPage('investors')}>{t.footer.investors}</a>
+        <a>{t.footer.contact}</a>
       </div>
-      <div className="footer-copy">© 2026 General Motors LLC. All Rights Reserved.</div>
+      <div className="footer-copy">{t.footer.copy}</div>
     </footer>
   )
 }
